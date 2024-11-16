@@ -10,8 +10,9 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+// questionary_view.dart
+
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
-import 'package:audioplayers/audioplayers.dart';
 
 class QuestionaryView extends StatefulWidget {
   const QuestionaryView({
@@ -28,79 +29,13 @@ class QuestionaryView extends StatefulWidget {
 }
 
 class _QuestionaryViewState extends State<QuestionaryView> {
-  final AudioPlayer _audioPlayer = AudioPlayer();
-  bool isPlaying = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _playAudio(); // Autoplay on initialization
-  }
-
-  void _playAudio() async {
-    try {
-      // Replace 'your_audio_url_here' with the actual audio URL
-      await _audioPlayer.play(UrlSource('your_audio_url_here'));
-      setState(() {
-        isPlaying = true;
-      });
-      _audioPlayer.onPlayerComplete.listen((event) {
-        setState(() {
-          isPlaying = false;
-        });
-      });
-    } catch (e) {
-      print('Error playing audio: $e');
-    }
-  }
-
-  void _pauseAudio() async {
-    try {
-      await _audioPlayer.pause();
-      setState(() {
-        isPlaying = false;
-      });
-    } catch (e) {
-      print('Error pausing audio: $e');
-    }
-  }
-
-  void _toggleAudio() {
-    if (isPlaying) {
-      _pauseAudio();
-    } else {
-      _playAudio();
-    }
-  }
-
-  @override
-  void dispose() {
-    _audioPlayer.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        ScrollLoopAutoScroll(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: [],
-          ),
-        ),
-        Positioned(
-          top: 10,
-          right: 10,
-          child: IconButton(
-            icon: Icon(
-              isPlaying ? Icons.volume_up : Icons.volume_off,
-              color: Colors.black,
-            ),
-            onPressed: _toggleAudio,
-          ),
-        ),
-      ],
+    return ScrollLoopAutoScroll(
+      scrollDirection: Axis.horizontal,
+      child: Column(
+        children: [],
+      ),
     );
   }
 }
