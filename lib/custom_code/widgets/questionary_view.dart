@@ -15,10 +15,10 @@ import 'package:audioplayers/audioplayers.dart';
 
 class QuestionaryView extends StatefulWidget {
   const QuestionaryView({
-    super.key,
+    Key? key,
     this.width,
     this.height,
-  });
+  }) : super(key: key);
 
   final double? width;
   final double? height;
@@ -38,20 +38,30 @@ class _QuestionaryViewState extends State<QuestionaryView> {
   }
 
   void _playAudio() async {
-    int result = await _audioPlayer.play('your_audio_url_here');
-    if (result == 1) {
+    try {
+      // Replace 'your_audio_url_here' with the actual audio URL
+      await _audioPlayer.play(UrlSource('your_audio_url_here'));
       setState(() {
         isPlaying = true;
       });
+      _audioPlayer.onPlayerComplete.listen((event) {
+        setState(() {
+          isPlaying = false;
+        });
+      });
+    } catch (e) {
+      print('Error playing audio: $e');
     }
   }
 
   void _pauseAudio() async {
-    int result = await _audioPlayer.pause();
-    if (result == 1) {
+    try {
+      await _audioPlayer.pause();
       setState(() {
         isPlaying = false;
       });
+    } catch (e) {
+      print('Error pausing audio: $e');
     }
   }
 

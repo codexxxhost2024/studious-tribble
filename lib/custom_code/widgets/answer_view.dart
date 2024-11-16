@@ -20,11 +20,11 @@ import 'package:audioplayers/audioplayers.dart';
 
 class AnswerView extends StatefulWidget {
   const AnswerView({
-    super.key,
+    Key? key,
     this.width,
     this.height = double.infinity,
     required this.text,
-  });
+  }) : super(key: key);
 
   final double? width;
   final double? height;
@@ -35,7 +35,7 @@ class AnswerView extends StatefulWidget {
 }
 
 class _AnswerViewState extends State<AnswerView> {
-  AudioPlayer _audioPlayer = AudioPlayer();
+  final AudioPlayer _audioPlayer = AudioPlayer();
   bool isPlaying = false;
   String? audioFilePath;
 
@@ -50,8 +50,7 @@ class _AnswerViewState extends State<AnswerView> {
       Uri.parse('https://api.neets.ai/v1/tts'),
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key':
-            '7d088e55e5ad4db1846e9511259418f0', // Replace with your actual API key
+        'X-API-Key': 'YOUR_API_KEY', // Replace with your actual API key
       },
       body: jsonEncode({
         'text': text,
@@ -79,8 +78,8 @@ class _AnswerViewState extends State<AnswerView> {
 
   void _playAudio() async {
     if (audioFilePath != null) {
-      int result = await _audioPlayer.play(DeviceFileSource(audioFilePath!));
-      if (result == 1) {
+      try {
+        await _audioPlayer.play(DeviceFileSource(audioFilePath!));
         setState(() {
           isPlaying = true;
         });
@@ -89,21 +88,28 @@ class _AnswerViewState extends State<AnswerView> {
             isPlaying = false;
           });
         });
+      } catch (e) {
+        print('Error playing audio: $e');
       }
+    }
+  }
+
+  void _pauseAudio() async {
+    try {
+      await _audioPlayer.pause();
+      setState(() {
+        isPlaying = false;
+      });
+    } catch (e) {
+      print('Error pausing audio: $e');
     }
   }
 
   void _toggleAudio() {
     if (isPlaying) {
-      _audioPlayer.pause();
-      setState(() {
-        isPlaying = false;
-      });
+      _pauseAudio();
     } else {
-      _audioPlayer.resume();
-      setState(() {
-        isPlaying = true;
-      });
+      _playAudio();
     }
   }
 
