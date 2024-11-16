@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'chat_screen_model.dart';
 export 'chat_screen_model.dart';
 
@@ -90,12 +91,16 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .headlineMedium
                                 .override(
-                                  fontFamily: 'Outfit',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .headlineMediumFamily,
                                   color:
                                       FlutterFlowTheme.of(context).primaryText,
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .headlineMediumFamily),
                                 ),
                           ),
                         ].divide(const SizedBox(width: 16.0)),
@@ -192,8 +197,16 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -267,8 +280,16 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -342,8 +363,16 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily:
-                                                              'Readex Pro',
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
                                                           letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
                                                         ),
                                                   ),
                                                 ),
@@ -422,8 +451,12 @@ class _ChatScreenWidgetState extends State<ChatScreenWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
-                                  fontFamily: 'Readex Pro',
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .labelMediumFamily,
                                   letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .labelMediumFamily),
                                 ),
                           ),
                         ),

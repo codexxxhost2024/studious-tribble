@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'chat_item_view_model.dart';
 export 'chat_item_view_model.dart';
@@ -96,10 +97,12 @@ class _ChatItemViewWidgetState extends State<ChatItemViewWidget>
                   child: Text(
                 widget.chat!.question,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                       fontSize: 18.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyLargeFamily),
                     ),
               )),
               Padding(
@@ -130,9 +133,12 @@ class _ChatItemViewWidgetState extends State<ChatItemViewWidget>
                       child: Text(
                         'Answer',
                         style: FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'Readex Pro',
+                              fontFamily:
+                                  FlutterFlowTheme.of(context).bodyLargeFamily,
                               letterSpacing: 0.0,
                               fontWeight: FontWeight.w500,
+                              useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                  FlutterFlowTheme.of(context).bodyLargeFamily),
                             ),
                       ),
                     ),

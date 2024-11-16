@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'thread_empty_model.dart';
 export 'thread_empty_model.dart';
 
@@ -50,9 +51,11 @@ class _ThreadEmptyWidgetState extends State<ThreadEmptyWidget> {
           Text(
             'Get started',
             style: FlutterFlowTheme.of(context).bodyLarge.override(
-                  fontFamily: 'Readex Pro',
+                  fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                   fontSize: 20.0,
                   letterSpacing: 0.0,
+                  useGoogleFonts: GoogleFonts.asMap().containsKey(
+                      FlutterFlowTheme.of(context).bodyLargeFamily),
                 ),
           ),
           Padding(
@@ -72,8 +75,10 @@ class _ThreadEmptyWidgetState extends State<ThreadEmptyWidget> {
             child: Text(
               'Create a thread to dive into a new world of curiosity and knowledge',
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'Readex Pro',
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                     letterSpacing: 0.0,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
                   ),
             ),
           ),
@@ -107,9 +112,12 @@ class _ThreadEmptyWidgetState extends State<ThreadEmptyWidget> {
                       const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Readex Pro',
+                        fontFamily:
+                            FlutterFlowTheme.of(context).titleSmallFamily,
                         color: Colors.white,
                         letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).titleSmallFamily),
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(

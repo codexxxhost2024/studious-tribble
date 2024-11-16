@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'history_item_view_model.dart';
 export 'history_item_view_model.dart';
 
@@ -69,10 +70,12 @@ class _HistoryItemViewWidgetState extends State<HistoryItemViewWidget> {
               title: Text(
                 widget.chat!.question,
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
                       fontSize: 16.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w500,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).bodyLargeFamily),
                     ),
               ),
               subtitle: Text(
@@ -80,8 +83,11 @@ class _HistoryItemViewWidgetState extends State<HistoryItemViewWidget> {
                   return var1.length <= 60 ? var1 : var1.substring(0, 60);
                 }(widget.chat!.answer),
                 style: FlutterFlowTheme.of(context).labelMedium.override(
-                      fontFamily: 'Readex Pro',
+                      fontFamily:
+                          FlutterFlowTheme.of(context).labelMediumFamily,
                       letterSpacing: 0.0,
+                      useGoogleFonts: GoogleFonts.asMap().containsKey(
+                          FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
               ),
               tileColor: Colors.transparent,
